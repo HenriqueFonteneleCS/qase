@@ -1,4 +1,14 @@
-name: QASE Run tests
+steps:
+    name: QASE Run tests
+    uses: qase-tms/gh-actions/run-complete
+    id: complete
+    if: always()
+    with:
+      token: ${{ secrets.QASE_TOKEN }}
+      project: CYP
+      id: ${{ steps.qase-run-create.outputs.id }}
+
+
 
 on:
   workflow_dispatch:
@@ -10,11 +20,11 @@ on:
         description: 'Enabled/disabled reporting to Qase'
         required: false
       qase_project_code: 
-        description: 'CYP'
+        description: 'Project CODE'
         required: true
       qase_run_id:
         description: 'Qase Run ID'
-        required: false
+        required: true
       qase_run_complete:
         description: 'Complete Qase Run'
         required: false
@@ -30,10 +40,9 @@ env:
 
 jobs:
    
-    timeout-minutes: 60
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
-    - uses: cskmnrpt/qase-link-run@v2
       env:
-        QASE_TESTOPS_API_TOKEN: ${{ env.QASE_TESTOPS_API_TOKEN }}
+        QASE_TESTOPS_API_TOKEN: ${{ env.QASE_API_TOKEN }}
         run: npm test
