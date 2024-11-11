@@ -6,7 +6,7 @@ steps:
       token: ${{ secrets.QASE_TOKEN }}
       project: CYP
       title: Test Run Title
-      description: |
+      description:
         Test Run Description
         Use multiline text and [markdown formatting](https://example.com)
       environment: my-env
@@ -18,7 +18,8 @@ steps:
       QASE_TESTOPS_PROJECT: CYP
       QASE_TESTOPS_API_TOKEN: ${{ secrets.QASE_TOKEN }}
       QASE_TESTOPS_RUN_ID: ${{ steps.qase-run-create.outputs.id }}
-    run: |
+    run: 
+    npm test
       # Run tests here  
 
     
