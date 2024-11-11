@@ -3,9 +3,7 @@
   "private": true,
   "scripts": {
     "open": "cypress open",
-    "test": "npx cypress run",
-    //"powershell -Command \"$env:QASE_MODE='testops'; npx cypress run\"",
-    //"cypress:run": "cypress run"
+    "test": "npx cypress run"
   },
   "type": "module",
   "devDependencies": {
