@@ -9,9 +9,9 @@ on:
       qase_report:
         description: 'Enabled/disabled reporting to Qase'
         required: false
-      qase_project_code:
-        description: 'Qase project code'
-        required: false
+      qase_project_code: 
+        description: 'CYP'
+        required: true
       qase_run_id:
         description: 'Qase Run ID'
         required: false
