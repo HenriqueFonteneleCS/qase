@@ -29,10 +29,11 @@ env:
 
 
 jobs:
-    run: npm test
+   
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
     - uses: cskmnrpt/qase-link-run@v2
       env:
         QASE_TESTOPS_API_TOKEN: ${{ env.QASE_TESTOPS_API_TOKEN }}
+        run: npm test
