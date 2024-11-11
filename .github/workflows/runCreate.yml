@@ -3,12 +3,11 @@ steps:
     uses: qase-tms/gh-actions/run-create
     id: qase-run-create
     with:
-      token: ${{ secrets.QASE_TOKEN }}
+      token: ${{ secrets.QASE_API_TOKEN }}
       project: CYP
-      title: Test Run Title
+      title: Test Run via Github
       description:
-        Test Run Description
-        Use multiline text and [markdown formatting](https://example.com)
+        Teste criado via Github Actions.
       environment: my-env
       milestone: 123
       plan: 321
@@ -16,9 +15,9 @@ steps:
   - name: Run tests
     env:
       QASE_TESTOPS_PROJECT: CYP
-      QASE_TESTOPS_API_TOKEN: ${{ secrets.QASE_TOKEN }}
+      QASE_TESTOPS_API_TOKEN: ${{ secrets.QASE_API_TOKEN }}
       QASE_TESTOPS_RUN_ID: ${{ steps.qase-run-create.outputs.id }}
-    run: 
+    run: |
     npm test
       # Run tests here  
 
