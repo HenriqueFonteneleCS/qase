@@ -1,34 +1,66 @@
+name: Github for Qase
+on:
+  workflow_dispatch:
+    inputs:
+      qase_api_base_url:
+        description: Qase API URL
+        required: true
+      qase_report:
+        description: Enabled/disabled reporting to Qase
+        required: true
+      qase_project_code:
+        description: Qase project code
+        required: true
+      qase_run_id:
+        description: Qase Run ID
+        required: true
+      qase_run_complete:
+        description: Qase Run autocomplete
+        required: true
+env:
+  QASE_API_BASE_URL: ${{ inputs.qase_api_base_url }}
+  QASE_TESTOPS_PROJECT: ${{ inputs.qase_project_code }}
+  QASE_TESTOPS_RUN_ID: ${{ inputs.qase_run_id }}
+  QASE_TESTOPS_RUN_COMPLETE: true
+  QASE_TESTOPS_API_TOKEN: ${{ secrets.QASE_API_TOKEN }}
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
 steps:
   - name: Create a Qase test run
-    uses: qase-tms/gh-actions/run-create
+  - uses: actions/checkout@v4
+  - uses: actions/setup-node@v4
+  - uses: cskmnrpt/qase-link-run@v2
     id: qase-run-create
     with:
       token: ${{ secrets.QASE_API_TOKEN }}
       project: CYP
-      title: Test Run via Github
-      description:
-        Teste criado via Github Actions.
+      title: Test Run Title
+      description: |
+        Test Run Description
+        Use multiline text and [markdown formatting](https://example.com)
       environment: my-env
       milestone: 123
       plan: 321
-
+      env:
+        QASE_API_TOKEN: ${{ env.QASE_TESTOPS_API_TOKEN }}
+  - run: npm install
+  - run: npm test
   - name: Run tests
     env:
       QASE_TESTOPS_PROJECT: CYP
       QASE_TESTOPS_API_TOKEN: ${{ secrets.QASE_API_TOKEN }}
       QASE_TESTOPS_RUN_ID: ${{ steps.qase-run-create.outputs.id }}
-    run: |
-    npm test
-      # Run tests here  
-
-    
+  - run: npm install
+  - run: npm test
   - name: Complete a Qase test run
-    uses: qase-tms/gh-actions/run-complete
+    uses: actions/checkout@v4
     id: complete
-    # use always() to run even if test step failed or job was canceled
-    # but don't run if creating a test run failed before this step
     if: always() && steps.qase-run-create.result == 'success'
     with:
-      token: ${{ secrets.QASE_TOKEN }}
+      token: ${{ secrets.QASE_API_TOKEN }}
       project: CYP
       id: ${{ steps.qase-run-create.outputs.id }}
+  - run: npm install
+  - run: npm test
