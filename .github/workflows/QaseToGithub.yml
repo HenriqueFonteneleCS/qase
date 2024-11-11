@@ -22,7 +22,7 @@ env:
   QASE_TESTOPS_PROJECT: ${{ inputs.qase_project_code }}
   QASE_TESTOPS_RUN_ID: ${{ inputs.qase_run_id }}
   QASE_TESTOPS_RUN_COMPLETE: true
-  QASE_API_TOKEN: ${{ secrets.QASE_API_TOKEN }}
+  QASE_TESTOPS_API_TOKEN: ${{ secrets.QASE_API_TOKEN }}
 
 jobs:
   test:
@@ -33,6 +33,6 @@ jobs:
     - uses: actions/setup-node@v4
     - uses: cskmnrpt/qase-link-run@v2
       env:
-        QASE_API_TOKEN: ${{ env.QASE_API_TOKEN }}
+        QASE_API_TOKEN: ${{ env.QASE_TESTOPS_API_TOKEN }}
     - run: npm install
     - run: npm test
