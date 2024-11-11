@@ -36,4 +36,5 @@ jobs:
           QASE_PROJECT_CODE: ${{ inputs.qase_project_code }}
           QASE_API_TOKEN: ${{ secrets.QASE_API_TOKEN }}
         run: |
+          npm install
           npm test 
