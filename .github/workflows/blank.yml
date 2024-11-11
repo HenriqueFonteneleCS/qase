@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v3  # Fetch repository code
+     # - uses: actions/checkout@v3  # Fetch repository code
 
       - name: Create a test run
         id: qase-run-create
