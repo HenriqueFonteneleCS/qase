@@ -31,22 +31,6 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-      env:
-       steps:       
-  name: Create a Qase test run
-    uses: qase-tms/gh-actions/run-create
-    id: qase-run-create
-    with:
-      token: ${{ secrets.QASE_TOKEN }}
-      project: CYP
-      title: Test Run Title Github
-      description: |
-        Test Run Description
-        Use multiline text and [markdown formatting](https://example.com)
-      environment: my-env
-      milestone: 123
-      plan: 321
-
   name: Run tests
     env:
       QASE_PROJECT_CODE: CODE
