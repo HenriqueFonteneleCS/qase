@@ -9,7 +9,9 @@ jobs:
 
       - name: Create a test run
         id: qase-run-create
-        uses: qase-tms/gh-actions/run-create
+        uses:  HenriqueFonteneleCS/qase/blank@main
+        # qase-tms/gh-actions/run-create
+       
         with:
           qase_api_base_url: ${{ inputs.qase_api_base_url }}
           qase_report: ${{ inputs.qase_report }}
@@ -25,7 +27,7 @@ jobs:
 
       - name: Complete a Qase test run
         id: complete
-        uses: qase-tms/gh-actions/run-complete
+        uses:  HenriqueFonteneleCS/qase/blank@main
         with:
           token: ${{ secrets.QASE_API_TOKEN }}
           project: CYP 
