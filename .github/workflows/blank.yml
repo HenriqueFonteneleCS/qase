@@ -8,16 +8,16 @@ on:
         required: true
       qase_report:
         description: 'Enabled/disabled reporting to Qase'
-        required: true
+        required: false
       qase_project_code:
         description: 'Qase project code'
         required: true
       qase_run_id:
         description: 'Qase Run ID'
-        required: true
+        required: false
       qase_run_complete:
         description: 'Complete Qase Run'
-        required: true
+        required: false
 
 env:
   QASE_API_BASE_URL: ${{ inputs.qase_api_base_url }}
