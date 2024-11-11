@@ -4,7 +4,7 @@ on:
     inputs:
       qase_api_base_url:
         description: Qase API URL
-        required: true
+        required: false
       qase_report:
         description: Enabled/disabled reporting to Qase
         required: true
@@ -13,7 +13,7 @@ on:
         required: true
       qase_run_id:
         description: Qase Run ID
-        required: true
+        required: false
       qase_run_complete:
         description: Qase Run autocomplete
         required: true
