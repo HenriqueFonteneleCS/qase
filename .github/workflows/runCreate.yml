@@ -4,7 +4,7 @@ steps:
     id: qase-run-create
     with:
       token: ${{ secrets.QASE_TOKEN }}
-      project: CODE
+      project: CYP
       title: Test Run Title
       description: |
         Test Run Description
@@ -15,7 +15,7 @@ steps:
 
   - name: Run tests
     env:
-      QASE_TESTOPS_PROJECT: CODE
+      QASE_TESTOPS_PROJECT: CYP
       QASE_TESTOPS_API_TOKEN: ${{ secrets.QASE_TOKEN }}
       QASE_TESTOPS_RUN_ID: ${{ steps.qase-run-create.outputs.id }}
     run: |
@@ -30,5 +30,5 @@ steps:
     if: always() && steps.qase-run-create.result == 'success'
     with:
       token: ${{ secrets.QASE_TOKEN }}
-      project: CODE
+      project: CYP
       id: ${{ steps.qase-run-create.outputs.id }}
