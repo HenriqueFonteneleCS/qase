@@ -5,13 +5,13 @@ on:
     inputs:
       qase_api_base_url:
         description: 'Qase API URL'
-        required: true
+        required: false
       qase_report:
         description: 'Enabled/disabled reporting to Qase'
         required: false
       qase_project_code:
         description: 'Qase project code'
-        required: true
+        required: false
       qase_run_id:
         description: 'Qase Run ID'
         required: false
