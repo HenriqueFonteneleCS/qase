@@ -29,7 +29,7 @@ env:
 
 
 jobs:
-  test:
+    run: npm test
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
