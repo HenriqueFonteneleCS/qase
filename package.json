@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "open": "cypress open",
-    "test": "npx cypress run"
+    "test": "export QASE_MODE=testops; npx cypress run"
   },
   "type": "module",
   "devDependencies": {
