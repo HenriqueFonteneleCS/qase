@@ -39,14 +39,14 @@ steps:
       title: Test Run Title
       description: |
         Test Run Description
-        Use multiline text and [markdown formatting](https://example.com)
-      environment: my-env
+      environment: teste
       milestone: 123
       plan: 321
       env:
         QASE_API_TOKEN: ${{ env.QASE_TESTOPS_API_TOKEN }}
   - run: npm install
   - run: npm test
+  
   - name: Run tests
     env:
       QASE_TESTOPS_PROJECT: CYP
@@ -54,6 +54,7 @@ steps:
       QASE_TESTOPS_RUN_ID: ${{ steps.qase-run-create.outputs.id }}
   - run: npm install
   - run: npm test
+  
   - name: Complete a Qase test run
     uses: actions/checkout@v4
     id: complete
