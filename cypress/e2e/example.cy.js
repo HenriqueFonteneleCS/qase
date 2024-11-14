@@ -1,8 +1,20 @@
 import { qase } from 'cypress-qase-reporter/mocha';
 
 describe('Suite Henrique', () => {
-  qase(503,
-    it('Caso de Teste 3 - Henrique via Cypress', () => {
+  qase(501,
+    it('Caso de Teste 1 - Henrique via Cypress', () => {
       expect(true).to.equal(false);
+    }));
+    qase(502,
+    it('Caso de Teste 2 - Henrique via Cypress', () => {
+      expect(true).to.equal(true);
+    }));
+    qase(503,
+    it('Caso de Teste 1 - Henrique via Cypress', () => {
+      expect(true).to.equal(false);
+    }));
+    qase(504,
+    it('Caso de Teste 1 - Henrique via Cypress', () => {
+      expect(true).to.equal(true);
     }));
 });
