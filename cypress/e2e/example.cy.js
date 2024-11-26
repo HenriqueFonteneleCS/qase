@@ -21,4 +21,8 @@ describe('Suite Henrique', () => {
     it('Caso de Teste 5 - Henrique via Cypress', () => {
       expect(true).to.equal(true);
     }));
+     qase(506,
+    it('Caso de Teste 6 - Henrique via Cypress', () => {
+      expect(true).to.equal(true);
+    }));
 });
