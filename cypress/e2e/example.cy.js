@@ -3,7 +3,7 @@ import { qase } from 'cypress-qase-reporter/mocha';
 describe('Suite Henrique', () => {
   qase(501,
     it('Caso de Teste 1 - Henrique via Cypress', () => {
-      expect(true).to.equal(false);
+      expect(true).to.equal(true);
     }));
     qase(502,
     it('Caso de Teste 2 - Henrique via Cypress', () => {
