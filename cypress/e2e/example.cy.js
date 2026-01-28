@@ -1,5 +1,5 @@
 import { qase } from 'cypress-qase-reporter/mocha';
-
+// 
 describe('Suite Henrique', () => {
   qase(501,
     it('Caso de Teste 1 - Henrique via Cypress', () => {
