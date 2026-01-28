@@ -1,0 +1,20 @@
+name: 'Assign Last Merged Author'
+description: 'Assigns the author of the last merged PR in a target repo as a reviewer for new PRs'
+author: 'Henrique Fontenele'
+inputs:
+  target_repo:
+    description: 'The repository to check for the last merged PR (owner/repo)'
+    required: false
+    default: 'clicksign/app-ci-cypress'
+  github_token:
+    description: 'GitHub token to perform actions'
+    required: true
+  pr_number:
+    description: 'The pull request number to assign the reviewer to (defaults to context)'
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'user-plus'
+  color: 'green'
